@@ -25,7 +25,3 @@ jobs:
         run: aws s3 sync ./dist/ s3://${{ secrets.AWS_S3_BUCKET }}
       - name: cloudfront invalidate
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
-
-
-        AKIARVUL7ENXYI35WWFS
-        G9MQG5qyKsWfuaZ7Ojsdbq+XwBaBLWUCnqr6MnEL
