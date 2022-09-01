@@ -1,0 +1,27 @@
+{
+  "me": "Dustin Vorac",
+  "title": "Dustin Vorac",
+  "resume": "/assets/dustin-vorac-resume.pdf",
+  "nav": [
+    {
+      "link": "#github",
+      "name": "Github",
+      "icon": "/assets/icon/github.svg"
+    },
+    {
+      "link": "#linkedin",
+      "name": "LinkedIn",
+      "icon": "/assets/icon/linkedin.svg"
+    },
+    {
+      "link": "#leetcode",
+      "name": "LeetCode",
+      "icon": "/assets/icon/leetcode.svg"
+    },
+    {
+      "link": "#email",
+      "name": "Email",
+      "icon": "/assets/icon/email.svg"
+    }
+  ]
+}

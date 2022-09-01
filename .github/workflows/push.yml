@@ -1,0 +1,31 @@
+name: Deploy dustinvorac.com
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone
+        uses: actions/checkout@v3
+      - name: aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: yarn
+        run: yarn --frozen-lockfile
+      - name: build
+        run: npm run build
+      - name: s3 sync
+        run: aws s3 sync ./dist/ s3://${{ secrets.AWS_S3_BUCKET }}
+      - name: cloudfront invalidate
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
+
+
+        AKIARVUL7ENXYI35WWFS
+        G9MQG5qyKsWfuaZ7Ojsdbq+XwBaBLWUCnqr6MnEL
