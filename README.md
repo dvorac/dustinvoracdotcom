@@ -8,3 +8,5 @@ This is my personal webpage built with Astro, and deployed to AWS S3 using Githu
 yarn
 yarn start
 ```
+
+poke
