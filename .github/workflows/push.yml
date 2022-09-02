@@ -19,7 +19,7 @@ jobs:
         with:
           aws-region: ${{ secrets.AWS_REGION }}
           role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
-          role-duration-seconds: 600
+          role-duration-seconds: 900
       - name: yarn
         run: yarn --frozen-lockfile
       - name: build
