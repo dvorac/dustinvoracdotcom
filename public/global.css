@@ -1,0 +1,16 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--dv-light);
+  color: var(--dv-black);
+}
+
+:root {
+  --dv-action: #F7C59F;
+  --dv-black: #2A324B;
+  --dv-dark: #767B91;
+  --dv-light: #C7CCDB;
+  --dv-white: #E1E5EE;
+}
