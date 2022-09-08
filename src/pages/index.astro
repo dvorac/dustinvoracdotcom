@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 ---
 
 <Layout>
@@ -9,28 +8,25 @@ import Card from '../components/Card.astro';
       <img src="/dustinvorac.jpg" alt="Profile Image" class="rounded"/>
       <h1>I'm Dustin Vorac.</h1>
     </div>
-		<div>
-      <p id="headline">I live in <b>Chicago</b>.</p>
-      <p id="headline">I'm a software engineer, specializing in <b>React and GraphQL frontends.</b> I have lots or previous experience building APIs in Java, and Ruby on Rails.</p>
-      <p id="headline">I also love <b>mentoring junior developers</b>, and leading software teams to deliver products of all kinds.</p>
-      <p id="headline">I enjoy exploring food and restaurants in Chicago. I like to read about copyright and patent law, especially as it relates to software. I also enjoy playing video games, especially city-builders.</p>
-      <p id="headline">I'm getting married in October! 💍❤️😃</p>
+		<div class="headlines">
+      <p>I live in <b>Chicago</b>. 🐻🌭</p>
+      <p>I'm a software engineer. I specialize in building <b>React and GraphQL frontends</b> for business of all sizes. I have lots or previous experience building APIs in Java, and Ruby on Rails.</p>
+      <p>I also love <b>mentoring junior developers</b>, and leading software teams to deliver products of all kinds.</p>
+      <p>I enjoy exploring food and restaurants in Chicago and reading about copyright and patent law, especially as it relates to software. I also enjoy playing video games, especially city-builders.</p>
+      <p>I'm getting married in October! 💍❤️😃</p>
     </div>
 		<div role="list" class="links">
-			<a href="mailto:dustin.vorac@gmail.com"><img src="/email.svg" class="icon"/></a>
-			<a href="https://www.linkedin.com/in/dustin-vorac/"><img src="/linkedin.svg" class="icon"/></a>
-			<a href="https://github.com/dvorac"><img src="/github.svg" class="icon"/></a>
-			<a href="https://leetcode.com/dustinvorac/"><img src="/leetcode.svg" class="icon"/></a>
+			<a href="mailto:dustin.vorac@gmail.com"><img src="/email.svg"/></a>
+			<a href="/dustin-vorac-resume.pdf"><img src="/cv.svg"/></a>
+			<a href="https://www.linkedin.com/in/dustin-vorac/"><img src="/linkedin.svg"/></a>
+			<a href="https://github.com/dvorac"><img src="/github.svg"/></a>
+			<a href="https://leetcode.com/dustinvorac/"><img src="/leetcode.svg"/></a>
 		</div>
-    <p>This page was built with <a href="https://astro.build/" target="_blank">Astro</a> 🚀. Sourcecode on <a href="https://github.com/dvorac/dustinvoracdotcom" target="_blank">Github</a>.</p>
+    <p>This page was built with <a href="https://astro.build/">Astro</a> 🚀. Sourcecode on <a href="https://github.com/dvorac/dustinvoracdotcom">Github</a>.</p>
 	</main>
 </Layout>
 
 <style>
-	h1 {
-		margin: 2rem 0;
-	}
-
 	main {
 		margin: auto;
 		padding: 1em;
@@ -51,17 +47,18 @@ import Card from '../components/Card.astro';
     width: 8rem;
   }
 
-  #headline {
+  .headlines p {
     font-weight: 400;
     font-size: large;
   }
 
   .links {
     display: flex;
+    align-items: center;
     gap: .5rem;
   }
 
-  .icon {
+  .links a img {
     height: 2rem;
     width: 2rem;
   }
