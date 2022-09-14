@@ -31,8 +31,8 @@ jobs:
       - name: aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-region: ${{ env.region }}
-          role-to-assume: ${{ env.role }}
+          aws-region: ${{ env.TF_VAR_region }}
+          role-to-assume: ${{ env.TF_VAR_role }}
           role-duration-seconds: 900
 
       - name: tf init
