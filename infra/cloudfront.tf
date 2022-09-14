@@ -1,6 +1,6 @@
 resource aws_cloudfront_distribution distribution {
   # https://stackoverflow.com/a/52077634
-  provider = var.region
+  provider = aws
 
   origin {
     # https://stackoverflow.com/a/41132075
