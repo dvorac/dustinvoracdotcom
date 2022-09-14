@@ -9,9 +9,8 @@ on:
 
 env:
   TF_VAR_region: ${{ secrets.AWS_REGION }}
-  TF_VAR_domain: ${{ secrets.AWS_DOMAIN }}
+  TF_VAR_apex_domain: ${{ secrets.AWS_DOMAIN }}
   TF_VAR_role: ${{ secrets.AWS_IAM_ROLE }}
-  TF_VAR_bucket: ${{ secrets.AWS_S3_BUCKET }}
   TF_VAR_state_bucket: ${{ secrets.AWS_TF_STATE_BUCKET }}
   TF_VAR_state_key: ${{ secrets.AWS_TF_STATE_KEY }}
 
