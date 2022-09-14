@@ -6,12 +6,14 @@ variable domain {
   default = ""
 }
 
-variable state_bucket {
-  default = ""
-}
-
 variable bucket {
   default = ""
 }
 
-#poke
+variable state_bucket {
+  default = ""
+}
+
+variable state_key {
+  default = ""
+}

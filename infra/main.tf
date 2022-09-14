@@ -7,7 +7,7 @@ provider aws {
 terraform {
   backend "s3" {
     bucket = var.state_bucket
-    key = "terraform"
+    key = var.state_key
     region = var.region
   }
 }
