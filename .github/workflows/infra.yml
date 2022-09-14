@@ -15,6 +15,10 @@ env:
   TF_VAR_state_bucket: ${{ secrets.AWS_TF_STATE_BUCKET }}
   TF_VAR_state_key: ${{ secrets.AWS_TF_STATE_KEY }}
 
+defaults:
+  run:
+    working-directory: infra
+
 jobs:
   infra:
     runs-on: ubuntu-latest
