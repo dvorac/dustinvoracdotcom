@@ -9,9 +9,9 @@ on:
 
 env:
   region: ${{ secrets.AWS_REGION }}
-  domain: ${{ secrets.AWS_DOMAIN }}
   role: ${{ secrets.AWS_IAM_ROLE }}
   bucket: ${{ secrets.AWS_S3_BUCKET }}
+  cloudfront: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
 
 jobs:
   deploy:
