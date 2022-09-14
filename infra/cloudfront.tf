@@ -1,11 +1,12 @@
+# see https://github.com/hashicorp/learn-terraform-cloudflare-static-website/blob/beb9be189b0dad2b6842768b15b3636c4659690a/main.tf
 resource aws_cloudfront_distribution distribution {
   # https://stackoverflow.com/a/52077634
   provider = aws
 
   origin {
     # https://stackoverflow.com/a/41132075
-    domain_name = aws_s3_bucket.bucket.website_endpoint
-    origin_id   = aws_s3_bucket.bucket.website_endpoint
+    domain_name = aws_s3_bucket_website_configuration.website.website_endpoint
+    origin_id   = aws_s3_bucket.website.id
 
     # https://stackoverflow.com/a/55042824
     custom_origin_config {
@@ -26,7 +27,7 @@ resource aws_cloudfront_distribution distribution {
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = aws_s3_bucket.bucket.website_endpoint
+    target_origin_id = aws_s3_bucket.website.id
     compress         = true
 
     forwarded_values {
