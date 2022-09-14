@@ -5,8 +5,8 @@ resource aws_cloudfront_distribution distribution {
 
   origin {
     # https://stackoverflow.com/a/41132075
-    domain_name = aws_s3_bucket_website_configuration.website.website_endpoint
-    origin_id   = aws_s3_bucket.website.id
+    domain_name = aws_s3_bucket_website_configuration.www.website_endpoint
+    origin_id   = aws_s3_bucket.www.id
 
     # https://stackoverflow.com/a/55042824
     custom_origin_config {
@@ -21,13 +21,14 @@ resource aws_cloudfront_distribution distribution {
   is_ipv6_enabled     = true
   comment             = ""
   default_root_object = "index.html"
+  price_class         = "PriceClass_100"
 
-  aliases = [var.domain]
+  aliases = ["www.${var.apex_domain}"]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = aws_s3_bucket.website.id
+    target_origin_id = aws_s3_bucket.www.id
     compress         = true
 
     forwarded_values {

@@ -2,11 +2,7 @@ variable region {
   default = ""
 }
 
-variable domain {
-  default = ""
-}
-
-variable bucket {
+variable apex_domain {
   default = ""
 }
 
@@ -17,5 +13,3 @@ variable state_bucket {
 variable state_key {
   default = ""
 }
-
-#pokepokepoke
