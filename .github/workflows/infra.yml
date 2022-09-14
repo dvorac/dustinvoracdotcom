@@ -2,7 +2,7 @@ name: dustinvorac.com
 
 on:
   push:
-    paths-ignore:
+    paths:
       - "infra/**"
     branches:
       - main
