@@ -1,0 +1,48 @@
+name: dustinvorac.com
+
+on:
+  push:
+    paths-ignore:
+      - "infra/**"
+    branches:
+      - main
+
+env:
+  TF_VAR_region: ${{ secrets.AWS_REGION }}
+  TF_VAR_domain: ${{ secrets.AWS_DOMAIN }}
+  TF_VAR_role: ${{ secrets.AWS_IAM_ROLE }}
+  TF_VAR_bucket: ${{ secrets.AWS_S3_BUCKET }}
+  TF_VAR_state_bucket: ${{ secrets.AWS_TF_STATE_BUCKET }}
+
+jobs:
+  infra:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo
+    steps:
+      - name: clone
+        uses: actions/checkout@v3
+
+      - name: tf setup
+        uses: hashicorp/setup-terraform@v1.1.0
+
+      - name: tf init
+        timeout-minutes: 2
+        run: |
+          terraform init \
+              -input=false \
+              -backend=true \
+              -backend-config="region=${{ env.TF_VAR_region }}" \
+              -backend-config="bucket=${{ env.TF_VAR_state_bucket }}" \
+              -backend-config="key=terraform" \
+              -reconfigure
+
+      - name: tf format
+        run: terraform fmt -check
+
+      - name: tf plan
+        run: terraform plan -out=terraform.plan
+      
+      # - name: tf apply
+      #   run: terraform apply -auto-approve terraform.plan

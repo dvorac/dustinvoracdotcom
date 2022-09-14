@@ -1,10 +1,10 @@
 data aws_route53_zone zone {
-  name = var.apex_domain
+  name = var.domain
 }
 
 resource aws_route53_record A {
   zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "www.${var.apex_domain}"
+  name    = var.domain
   type    = "A"
 
   alias {
@@ -16,7 +16,7 @@ resource aws_route53_record A {
 
 resource aws_route53_record AAAA {
   zone_id = data.aws_route53_zone.zone.zone_id
-  name    = "www.${var.apex_domain}"
+  name    = var.domain
   type    = "AAAA"
 
   alias {

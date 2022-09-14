@@ -1,6 +1,6 @@
 resource aws_cloudfront_distribution distribution {
   # https://stackoverflow.com/a/52077634
-  provider = aws.us_east_1
+  provider = var.region
 
   origin {
     # https://stackoverflow.com/a/41132075
@@ -21,7 +21,7 @@ resource aws_cloudfront_distribution distribution {
   comment             = ""
   default_root_object = "index.html"
 
-  aliases = ["www.${var.apex_domain}"]
+  aliases = [var.domain]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]

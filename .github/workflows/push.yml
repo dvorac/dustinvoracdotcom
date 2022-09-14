@@ -1,9 +1,17 @@
-name: Deploy dustinvorac.com
+name: dustinvorac.com
 
 on:
   push:
+    paths-ignore:
+      - "infra/**"
     branches:
       - main
+
+env:
+  region: ${{ secrets.AWS_REGION }}
+  domain: ${{ secrets.AWS_DOMAIN }}
+  role: ${{ secrets.AWS_IAM_ROLE }}
+  bucket: ${{ secrets.AWS_S3_BUCKET }}
 
 jobs:
   deploy:
@@ -14,17 +22,22 @@ jobs:
     steps:
       - name: clone
         uses: actions/checkout@v3
+
       - name: aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-region: ${{ secrets.AWS_REGION }}
-          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+          aws-region: ${{ env.region }}
+          role-to-assume: ${{ env.role }}
           role-duration-seconds: 900
+
       - name: yarn
         run: yarn --frozen-lockfile
+
       - name: build
-        run: npm run build
+        run: yarn run build
+
       - name: s3 sync
-        run: aws s3 sync ./dist/ s3://${{ secrets.AWS_S3_BUCKET }}
+        run: aws s3 sync ./dist/ s3://${{ env.bucket }}
+        
       - name: cloudfront invalidate
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.cloudfront }} --paths "/*"

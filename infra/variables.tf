@@ -1,11 +1,15 @@
 variable region {
-  default = "us-east-1"
+  default = ""
 }
 
-variable profile {
-  default = "default"
+variable domain {
+  default = ""
 }
 
-variable apex_domain {
+variable state_bucket {
+  default = ""
+}
+
+variable bucket {
   default = ""
 }

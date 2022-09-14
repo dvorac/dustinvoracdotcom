@@ -2,9 +2,12 @@
 # see: https://github.com/jeromedecoster/github-actions-hugo-terraform-s3
 provider aws {
   region  = var.region
-  profile = var.profile
 }
 
 terraform {
-  backend "s3" {}
+  backend "s3" {
+    bucket = var.state_bucket
+    key = "terraform"
+    region = var.region
+  }
 }
