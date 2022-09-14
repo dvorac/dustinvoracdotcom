@@ -10,7 +10,7 @@ on:
 env:
   region: ${{ secrets.AWS_REGION }}
   role: ${{ secrets.AWS_IAM_ROLE }}
-  domain: ${{ secrets.AWS_S3_BUCKET }}
+  domain: ${{ secrets.AWS_DOMAIN }}
   cloudfront: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
 
 jobs:
