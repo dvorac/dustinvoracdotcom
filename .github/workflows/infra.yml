@@ -46,5 +46,3 @@ jobs:
       
       # - name: tf apply
       #   run: terraform apply -auto-approve terraform.plan
-
-      #poke
