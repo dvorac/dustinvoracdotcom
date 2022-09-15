@@ -23,7 +23,10 @@ resource "aws_cloudfront_distribution" "distribution" {
   default_root_object = "index.html"
   price_class         = "PriceClass_100"
 
-  aliases = ["www.${var.apex_domain}"]
+  aliases = [
+    var.apex_domain,
+    "www.${var.apex_domain}"
+  ]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
