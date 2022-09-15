@@ -6,8 +6,6 @@ provider aws {
 
 terraform {
   backend "s3" {
-    bucket = var.state_bucket
-    key = var.state_key
-    region = var.region
+    # provided by -backend-config flags during "terraform init"
   }
 }

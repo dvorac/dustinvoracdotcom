@@ -37,6 +37,9 @@ jobs:
           terraform init \
               -input=false \
               -backend=true \
+              -backend-config="region=${{ env.TF_VAR_region }}" \
+              -backend-config="bucket=${{ env.TF_VAR_state_bucket }}" \
+              -backend-config="key=${{ env.TF_VAR_state_key }}" \
               -reconfigure
       # - name: tf format
       #   run: terraform fmt -check
