@@ -41,13 +41,14 @@ jobs:
               -backend-config="bucket=${{ env.TF_VAR_state_bucket }}" \
               -backend-config="key=${{ env.TF_VAR_state_key }}" \
               -reconfigure
-      # - name: tf format
-      #   run: terraform fmt -check
+      - name: tf format
+        run: terraform fmt -check
       - name: tf plan
         run: terraform plan -out=terraform.plan
       - name: tf apply
         run: terraform apply -auto-approve terraform.plan
       - name: tf outputs
+        # see https://blog.nillsf.com/index.php/2020/08/25/how-to-use-terraform-output-in-a-github-action/
         id: results
         run: |
           bucket=$(terraform-bin output aws_bucket)
