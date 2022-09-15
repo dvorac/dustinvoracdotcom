@@ -41,7 +41,7 @@ jobs:
               -backend-config="bucket=${{ env.TF_VAR_state_bucket }}" \
               -backend-config="key=${{ env.TF_VAR_state_key }}" \
               -reconfigure
-      - name: tf format
+      - name: tf lint
         run: terraform fmt -check
       - name: tf plan
         run: terraform plan -out=terraform.plan

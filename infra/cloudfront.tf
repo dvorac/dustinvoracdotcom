@@ -1,5 +1,5 @@
 # see https://github.com/hashicorp/learn-terraform-cloudflare-static-website/blob/beb9be189b0dad2b6842768b15b3636c4659690a/main.tf
-resource aws_cloudfront_distribution distribution {
+resource "aws_cloudfront_distribution" "distribution" {
   # https://stackoverflow.com/a/52077634
   provider = aws
 

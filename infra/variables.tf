@@ -1,15 +1,15 @@
-variable region {
+variable "region" {
   default = ""
 }
 
-variable state_bucket {
+variable "state_bucket" {
   default = ""
 }
 
-variable state_key {
+variable "state_key" {
   default = ""
 }
 
-variable apex_domain {
+variable "apex_domain" {
   default = "dustinvorac.com"
 }
