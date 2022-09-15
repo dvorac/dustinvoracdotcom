@@ -53,7 +53,6 @@ jobs:
         run: |
           bucket=$(terraform-bin output aws_bucket)
           cloudfront=$(terraform-bin output aws_cloudfront_distribution)
-          echo $bucket $cloudfront
           echo "::set-output name=bucket::$bucket name=cloudfront::$cloudfront"
     outputs:
       bucket: ${{ steps.results.outputs.bucket }}

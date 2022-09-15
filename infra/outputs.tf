@@ -3,5 +3,5 @@ output aws_cloudfront_distribution {
 }
 
 output aws_bucket {
-  value = aws_s3_bucket.www.bucket_domain_name
+  value = aws_s3_bucket.www.website_domain
 }

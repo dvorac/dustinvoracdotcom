@@ -3,7 +3,7 @@ variable region {
 }
 
 variable apex_domain {
-  default = ""
+  default = "dustinvorac.com"
 }
 
 variable state_bucket {
