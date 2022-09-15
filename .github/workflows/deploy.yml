@@ -52,7 +52,7 @@ jobs:
         id: results
         run: |
           bucket=${terraform-bin output aws_bucket}
-          cloudfront=${terraform-bin output -raw aws_cloudfront_distribution}
+          cloudfront=${terraform-bin output aws_cloudfront_distribution}
           echo $bucket $cloudfront
           echo "::set-output name=bucket::$bucket name=cloudfront::$cloudfront"
     outputs:
@@ -79,6 +79,6 @@ jobs:
       - name: build
         run: yarn run build
       - name: s3 sync
-        run: aws s3 sync ./dist/ s3://${{ needs.infra.outputs.bucket }}
+        run: aws s3 sync ./dist/ s3://${{ needs.terraform.outputs.bucket }}
       - name: cloudfront invalidate
-        run: aws cloudfront create-invalidation --distribution-id ${{ needs.infra.outputs.cloudfront }} --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id ${{ needs.terraform.outputs.cloudfront }} --paths "/*"
