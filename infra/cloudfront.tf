@@ -25,7 +25,8 @@ resource "aws_cloudfront_distribution" "distribution" {
 
   aliases = [
     var.apex_domain,
-    "www.${var.apex_domain}"
+    "www.${var.apex_domain}",
+    "exceleras.${var.apex_domain}"
   ]
 
   default_cache_behavior {
