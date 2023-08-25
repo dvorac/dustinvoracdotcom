@@ -27,7 +27,7 @@ resource "aws_route53_record" "ipv6" {
   }
 }
 
-resource "aws_route53_record" "ipv4" {
+resource "aws_route53_record" "ipv4_exceleras" {
   zone_id = data.aws_route53_zone.domain.zone_id
   name    = "exceleras.${var.apex_domain}"
   type    = "A"
@@ -39,7 +39,7 @@ resource "aws_route53_record" "ipv4" {
   }
 }
 
-resource "aws_route53_record" "ipv6" {
+resource "aws_route53_record" "ipv6_exceleras" {
   zone_id = data.aws_route53_zone.domain.zone_id
   name    = "exceleras.${var.apex_domain}"
   type    = "AAAA"
