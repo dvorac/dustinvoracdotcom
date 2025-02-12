@@ -1,18 +1,16 @@
 {
-  "name": "@example/basics",
-  "version": "0.0.1",
+  "name": "dustinvoracdotcom",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
-  "devDependencies": {
-    "astro": "^1.1.1",
-    "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8"
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.4",
+    "astro": "^5.2.5",
+    "tailwindcss": "^4.0.4"
   }
 }
